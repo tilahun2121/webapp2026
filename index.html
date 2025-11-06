@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CBE Employee Registration</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>body {
+  font-family: "Poppins", sans-serif;
+  background: #f0f3f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#imagePreview {
+  display: none;
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #ccc;
+}
+
+#message {
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <h2>CBE Employee Registration Form</h2>
+
+    <form id="employeeForm" enctype="multipart/form-data" method="POST" action="/register">
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" name="fullname" id="fullname" required />
+      </div>
+
+      <div class="form-group">
+        <label>Email *</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+
+      <div class="form-group">
+        <label>Phone *</label>
+        <input type="tel" name="phone" id="phone" pattern="[0-9+ ]{10,15}" required />
+      </div>
+
+      <div class="form-group">
+        <label>Work Experience (Years)</label>
+        <input type="number" name="workExperience" id="workExperience" min="0" />
+      </div>
+
+      <div class="form-group">
+        <label>Gender *</label>
+        <select name="gender" id="gender" required>
+          <option value="">Select</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Birth Date *</label>
+        <input type="date" name="birthdate" id="birthdate" required />
+      </div>
+
+      <div class="form-group">
+        <label>Graduation Year *</label>
+        <input type="number" name="gradYear" id="gradYear" min="1980" max="2025" required />
+      </div>
+
+      <div class="form-group">
+        <label>Educational Certificate (PDF/DOC/DOCX) *</label>
+        <input type="file" name="eduCertificate" id="eduCertificate" accept=".pdf,.doc,.docx" required />
+      </div>
+
+      <div class="form-group">
+        <label>Experience Document (PDF/DOC/DOCX)</label>
+        <input type="file" name="expDocument" id="expDocument" accept=".pdf,.doc,.docx" />
+      </div>
+
+      <div class="form-group">
+        <label>Profile Image (JPG/PNG) *</label>
+        <input type="file" name="profileImage" id="profileImage" accept=".jpg,.jpeg,.png" required />
+        <img id="imagePreview" alt="Preview" />
+      </div>
+
+      <button type="submit">Submit</button>
+      <p id="message"></p>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
